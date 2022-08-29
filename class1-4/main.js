@@ -2,7 +2,7 @@ console.log("Hello");
 
 // bringing in the top level function provided by the express framework
 let express = require("express");
-// make a web server object, this is creating out application object
+// make a web server object, this is creating our application object
 let app = express();
 // defining a port
 let PORT = 8080;
@@ -26,11 +26,12 @@ app.get("/hello/:name", function (request, response) {
   let message = `hello there ${value}`;
   response.send(message);
 });
-
-app.get("/bye?name=:x", function (request, response) {
-  let value = request.query.name;
-  if (request.query.name) {
+app.get("/bye", function (request, response) {
+  let value = request.query;
+  console.log("this is my bye", value);
+  if (!value.name) {
+    response.send("See ya later!");
+  } else {
+    response.send(`See ya later ${value.name}!`);
   }
-  let message = `See ya later ${value}!`;
-  response.send(message);
 });
