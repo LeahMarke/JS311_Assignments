@@ -26,6 +26,7 @@ app.get("/hello/:name", function (request, response) {
   let message = `hello there ${value}`;
   response.send(message);
 });
+//  *************HOMEWORK FOR CLASS 2*************
 // writing a GET function to take in a request with the route set to /bye
 app.get("/bye", function (request, response) {
   // setting a variable name for the response object and accessing the query key
