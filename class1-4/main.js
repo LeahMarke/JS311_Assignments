@@ -26,9 +26,10 @@ app.get("/hello/:name", function (request, response) {
   let message = `hello there ${value}`;
   response.send(message);
 });
+// writing a GET function to take in a request with the route set to /bye
 app.get("/bye", function (request, response) {
+  // setting a variable name for the response object and accessing the query key
   let value = request.query;
-  console.log("this is my bye", value);
   if (!value.name) {
     response.send("See ya later!");
   } else {
